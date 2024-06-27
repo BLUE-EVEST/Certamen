@@ -1,0 +1,6 @@
+Django
+djangorestframework
+dj-database-url
+
+psycopg2
+requests
