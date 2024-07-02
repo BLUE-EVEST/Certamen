@@ -14,13 +14,33 @@ services:
     
   db:
     container_name: cer3_db
-    image: postgres:14
+    image: postgres:16.3
     ports:
       - 5432:5432
     environment:
      POSTGRES_USER: postgres
      POSTGRES_DB: cer3
      POSTGRES_PASSWORD: miau123.
+  
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "user@domain.com"
+      PGADMIN_DEFAULT_PASSWORD: "SuperSecret"
+    ports:
+      - "8005:80"
+
+  # react:
+  #   container_name: cer3_react
+  #     context: C:\Users\thees\cer3-ldp
+  #     build: react.Dockerfile
+  #   command: npm start
+  #   volumes:
+  #     - ./react/:/app/
+  #   ports:
+  #   - "4400:3000"
 
 networks:
   default:
