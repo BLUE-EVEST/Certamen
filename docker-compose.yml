@@ -31,6 +31,18 @@ services:
       PGADMIN_DEFAULT_PASSWORD: "SuperSecret"
     ports:
       - "8005:80"
+  
+  react-app:
+    image: node:18
+    volumes:
+      - ./react:/app
+    ports:
+      - "4400:3000"
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+
+
 
   # react:
   #   container_name: cer3_react
